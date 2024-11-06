@@ -32,7 +32,7 @@ and is added to work with Laravel.
 
   <img src="https://github.com/kovyakin/components/blob/master/docs/images/1.png" alt="image">
  
-[Use](https://github.com/kovyakin/components/wiki)
+[Usage](https://github.com/kovyakin/components/wiki), you can see the usage documentation here. (Wiki)
 
 ## Changelog
 
