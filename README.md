@@ -6,11 +6,11 @@
 
 <div style="text-align: center;">
 
-![GitHub watchers](https://img.shields.io/github/watchers/kovyakin/parser-data-product-wb)
-![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/kovyakin/parser-data-product-wb/total)
-![Packagist Stars](https://img.shields.io/packagist/stars/kovyakin/parser-data-product-wb)
-![Packagist Version](https://img.shields.io/packagist/v/kovyakin/parser-data-product-wb)
-![Packagist License](https://img.shields.io/packagist/l/kovyakin/parser-data-product-wb)
+![GitHub watchers](https://img.shields.io/github/watchers/kovyakin/components)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/kovyakin/components)
+![Packagist Stars](https://img.shields.io/packagist/stars/kovyakin/components)
+![Packagist Version](https://img.shields.io/packagist/v/kovyakin/components)
+![Packagist License](https://img.shields.io/packagist/l/kovyakin/components)
 
 </div>
 
