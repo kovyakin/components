@@ -66,6 +66,7 @@ Where
 - 'width' - column width;
 'fixed' - to fix the column or not.
  
+[Main](https://github.com/kovyakin/components.wiki.git)
 
 ## Changelog
 
