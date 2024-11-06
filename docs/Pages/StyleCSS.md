@@ -77,7 +77,7 @@ Example
      ];  
 ```
 
-<img src="https://github.com/kovyakin/components/blob/master/docs/images/3.png" alt="image">
+<img src="https://github.com/kovyakin/components/blob/master/docs/images/8.png" alt="image">
 
 the table view, column fixing, etc. are configured in $props.
 
