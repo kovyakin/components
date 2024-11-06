@@ -1,0 +1,28 @@
+{
+  "name": "kovyakin/components",
+  "description": "components vue3 for Laravel",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Dmitry Kovyakin",
+      "email": "kdv-1974@mail.ru",
+      "homepage": "https://github.com/kovyakin"
+    }
+  ],
+  "require": {
+    "php": "^8.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Kovyakin\\Components\\": "src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Kovyakin\\Components\\App\\Providers\\ComponentsServiceProvider"
+      ]
+    }
+  }
+}

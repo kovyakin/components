@@ -1,0 +1,31 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Models\User;
+use Kovyakin\Components\app\Interfaces\Table;
+use Kovyakin\Components\app\Traits\ClassName;
+use Illuminate\Contracts\View\View;
+
+class {{ class }} implements Table
+{
+    use ClassName;
+
+          protected static string $className;
+
+          protected static string $model;
+          protected static array $columns = [['text' => "ID", 'value' => "id"], ['text' => "Name", 'value' => "name"]];
+          protected static array $items = [['id' => '1', 'name' => 'dina']];
+
+     public static function handler(): View
+        {
+            self::$className = self::getClassName();
+            self::$model = User::all();
+
+            return view('components::table')->with([
+                'className' => self::$className,
+                'headers' => json_encode(self::$columns, JSON_UNESCAPED_UNICODE),
+                'items' => json_encode(self::$items, JSON_UNESCAPED_UNICODE),
+            ]);
+        }
+}
