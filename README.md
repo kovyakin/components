@@ -30,41 +30,7 @@ and is added to work with Laravel.
 
 - php artisan vendor:publish --tag=components
 
-    ### Usage
-- php artisan vendor:publish --tag=components or php artisan components:initialize
-- Add to the end of the file :
-```php
-    <script src="{{asset('/vendor/components/table/table.js')}}" type="module"></script>
-    <link href="{{asset('/vendor/components/table/table.css')}}" rel="stylesheet" />
-    <link href="{{asset('/vendor/components/table/table_style.css')}}" rel="stylesheet" />
-```
-- The next step is to create a table class,example
-```php
- php artisan components:table UserTable
-```
-
-you will create a table class in "app/Components/Table/UserTable.php".
-
-- Set table headers and fields in the method
-
-use the component <x-table-component table="UserTable" /> in blade to display the table,
-example:
-```php
- protected static array $columns = [
-         ['text' => "ID", 'value' => "id", 'sortable' => true, 'width' => '40', 'fixed' => true],
-         ['text' => "Имя", 'value' => "name", 'sortable' => true],
-         ['text' => "Email", 'value' => "email", 'sortable' => true],
-         ['text' => "Email verified", 'value' => "email_verified_at"],
-         ['text' => "Created at", 'value' => "created_at"],
-         ['text' => "Updated at", 'value' => "updated_at"],
-     ];
-```
-Where 
-- 'text' - table header text;
-- 'value' - Field from the database, must match the model, for example app/Models/User.php;
-- 'sortable' - column sorting permission;
-- 'width' - column width;
-'fixed' - to fix the column or not.
+  <img src="https://github.com/kovyakin/components/blob/master/docs/images/1.png" alt="image">
  
 [Main Page](https://github.com/kovyakin/components/wiki)
 
