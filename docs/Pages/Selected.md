@@ -1,5 +1,3 @@
-
-
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -17,34 +15,46 @@
 # Component Table for Laravel
 
 ## Requirements
+
 - Laravel 11+.
 - PHP 8.2 +.
 
 ## Main
+
 This package is developed on Vue3 (https://github.com/HC200ok/vue3-easy-data-table/)
 and is added to work with Laravel.
 
-### Installation
+# Selected
 
-- composer require kovyakin/components
+Use to selected items, example
 
-- php artisan vendor:publish --tag=components
+```php
+       protected static bool $useItemSelected = true;
+     }
+```
 
-  <img src="https://github.com/kovyakin/components/blob/master/docs/images/1.png" alt="image">
+<img src="https://github.com/kovyakin/components/blob/master/docs/images/5.png" alt="image">
 
-[Usage](https://github.com/kovyakin/components/wiki), you can see the usage documentation here. (Wiki)
+if $allowGroupDelete = true then you can delete multiple selected records
 
-## Changelog
+```php
+       protected static bool $allowGroupDelete = true;
+     
+```
 
-[CHANGELOG.md](CHANGELOG.md), what has changed recently.
+```php
+     public function destroySelected(Request $request){
 
-## Author
+    //        dd($request->value);
+    $total = User::count();
+    return ['success' => true,'total' => $total];
+}
+```
 
-- [Kovyakin Dmitry](https://github.com/kovyakin)
+your method in api should contain string address 'delete/selected'
 
-## License
-
-This is MIT License (MIT). Take a look to see [License File](LICENSE.md).
-
+```php
+  Route::delete('/user/delete/selected', [UserController::class, 'destroySelected']);
+```
 
 

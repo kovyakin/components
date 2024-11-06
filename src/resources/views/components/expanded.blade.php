@@ -1,6 +1,6 @@
 <div>
-    <div class="bg-red-500 flex justify-center py-6 h-[400px]" >
-        <img  src="https://image-skincare.ru/wa-data/public/shop/products/28/06/628/images/1419/1419.600.jpg">
+    <div class="bg-red-500 flex justify-center py-6 h-[400px]">
+        <img src="https://image-skincare.ru/wa-data/public/shop/products/28/06/628/images/1419/1419.600.jpg">
     </div>
     <table>
         <tr>
@@ -39,6 +39,7 @@
 
 <style>
     .aligncenter {
-        text-align: center; !important;
+        text-align: center;
+    !important;
     }
 </style>

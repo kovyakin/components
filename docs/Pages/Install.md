@@ -15,10 +15,12 @@
 # Component Table for Laravel
 
 ## Requirements
+
 - Laravel 11+.
 - PHP 8.2 +.
 
 ## Main
+
 This package is developed on Vue3 (https://github.com/HC200ok/vue3-easy-data-table/)
 and is added to work with Laravel.
 
@@ -28,15 +30,18 @@ and is added to work with Laravel.
 
 - php artisan vendor:publish --tag=components
 
-  ## Usage
+  # Usage
 - php artisan vendor:publish --tag=components or php artisan components:initialize
 - Add to the end of the file :
+
 ```php
     <script src="{{asset('/vendor/components/table/table.js')}}" type="module"></script>
     <link href="{{asset('/vendor/components/table/table.css')}}" rel="stylesheet" />
     <link href="{{asset('/vendor/components/table/table_style.css')}}" rel="stylesheet" />
 ```
+
 - The next step is to create a table class,example
+
 ```php
  php artisan components:table UserTable
 ```
@@ -47,6 +52,7 @@ you will create a table class in "app/Components/Table/UserTable.php".
 
 use the component <x-table-component table="UserTable" /> in blade to display the table,
 example:
+
 ```php
  protected static array $columns = [
          ['text' => "ID", 'value' => "id", 'sortable' => true, 'width' => '40', 'fixed' => true],
@@ -57,7 +63,9 @@ example:
          ['text' => "Updated at", 'value' => "updated_at"],
      ];
 ```
+
 Where
+
 - 'text' - table header text;
 - 'value' - Field from the database, must match the model, for example app/Models/User.php;
 - 'sortable' - column sorting permission;
@@ -65,22 +73,27 @@ Where
   'fixed' - to fix the column or not.
 
 ### Set Items:
+
 ```php
      protected static function dataTable(): Collection| null
      {
          return self::$items =  User::all();
      }
 ```
+
 ### Set in "app/Components/Table/UserTable.php"
+
 ```php
      private static bool $useApi = false;
 ```
- now you can use the component in your blade, example
+
+now you can use the component in your blade, example
+
 ```php
    <x-table-component table="UserTable" /> 
 ```
-where table="UserTable" - table class name, case insensitive.
 
+where table="UserTable" - table class name, case insensitive.
 
 ## Important! In one blade you can use only one component with a certain name, and many components with different names
 

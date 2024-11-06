@@ -1,5 +1,3 @@
-
-
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -17,34 +15,29 @@
 # Component Table for Laravel
 
 ## Requirements
+
 - Laravel 11+.
 - PHP 8.2 +.
 
 ## Main
+
 This package is developed on Vue3 (https://github.com/HC200ok/vue3-easy-data-table/)
 and is added to work with Laravel.
 
-### Installation
+# Items
 
-- composer require kovyakin/components
+Set table items in your table model, example
 
-- php artisan vendor:publish --tag=components
+```php
+   protected static function dataTable(): Collection| null
+     {
+         return self::$items =  User::all();
+//         return self::$items = null;
+     }
+```
 
-  <img src="https://github.com/kovyakin/components/blob/master/docs/images/1.png" alt="image">
-
-[Usage](https://github.com/kovyakin/components/wiki), you can see the usage documentation here. (Wiki)
-
-## Changelog
-
-[CHANGELOG.md](CHANGELOG.md), what has changed recently.
-
-## Author
-
-- [Kovyakin Dmitry](https://github.com/kovyakin)
-
-## License
-
-This is MIT License (MIT). Take a look to see [License File](LICENSE.md).
-
-
+You can use scopes, middleware, etc.
+Install only if you get data not through the API, but directly from the model.
+If there is a lot of data (for example, more than 5000 records),
+then it is better to work through the API
 
