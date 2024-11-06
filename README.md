@@ -28,15 +28,15 @@ and is added to work with Laravel.
 
 - composer require kovyakin/components
 
-  - php artisan vendor:publish --tag=components
+- php artisan vendor:publish --tag=components
 
   <img src="https://github.com/kovyakin/components/blob/master/docs/images/1.png" alt="image">
 
-  [Main Page](https://github.com/kovyakin/components/wiki)
+[Usage](https://github.com/kovyakin/components/wiki), you can see the usage documentation here. (Wiki)
 
 ## Changelog
 
- [CHANGELOG.md](CHANGELOG.md), what has changed recently.
+[CHANGELOG.md](CHANGELOG.md), what has changed recently.
 
 ## Author
 
@@ -45,6 +45,3 @@ and is added to work with Laravel.
 ## License
 
 This is MIT License (MIT). Take a look to see [License File](LICENSE.md).
-
-
-
