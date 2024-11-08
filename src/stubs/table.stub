@@ -31,7 +31,6 @@ class {{ class }} implements Table
      protected static array $apiQuery = [
          'url' => '', //string; url get
          'method' => '', //string;  method
-         'value' => [], // array;
          'paginate' => false, //bool; use paginate
          'count_paginate' => 5, //number; value = Model:: paginate in api !!!
          'url_search' => '', //string; default  10 records
