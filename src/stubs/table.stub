@@ -65,8 +65,8 @@ class {{ class }} implements Table
       * avilable 'left' | 'center' | 'right'
       */
      protected static array $direction = [
-         'header_text_direction' => "center",
-         'body_text_direction' => "left"
+         'header_text_direction' => "",
+         'body_text_direction' => ""
      ];
  //    CSS STYLE START
      /**
@@ -74,13 +74,13 @@ class {{ class }} implements Table
       * REQURED!
       * Set font-size to header table
       */
-     protected static string $font_size_header = '14px';
+     protected static string $font_size_header = '';
      /**
       * @var string
       * REQURED!
       * Set font-size to body table
       */
-     protected static string $font_size_body = '12px';
+     protected static string $font_size_body = '';
      /**
       * @var string
       * REQURED!
@@ -266,7 +266,7 @@ class {{ class }} implements Table
          //number; Initial current page. With use Api
          'checkbox_column_width' => null,
          //number; Width of checkbox column
-         'theme_color' => '#67C23AFF',
+         'theme_color' => '#07bf9b',
          // Use theme-color prop to customize color of active checkbox, active option of rows selector, loading animation and active pagination button.
 
 
@@ -279,6 +279,11 @@ class {{ class }} implements Table
          'text_search_field' => 'search field',
          'text_search_value' => 'search value',
          'text_search_default' => 'all',
+         'style_div_search' => '',
+         'style_search_field' => '',
+         'style_search_field_select' => '',
+         'style_search_value' => '',
+         'style_search_value_input' => '',
 
  //                          example
  //        'style_div_search'=>'font-size:10px; background-color:red; color:blue;',
@@ -337,11 +342,16 @@ class {{ class }} implements Table
       * @Use columns Now, you can set column width to a specfic value.Table header items
       * ['text' => "Image", 'value' => "image",'width' => '100'], - for images only
       * 'sortable' => false - recomented!!!
+      *             checkbox max = 3.
+      * ['text' => "is Active", 'value' => "checkbox1"],
+      * ['text' => "is True", 'value' => "checkbox2"],
+      * ['text' => "is Bob", 'value' => "checkbox3"],
       */
      protected static array $columns = [
          ['text' => "ID", 'value' => "id", 'sortable' => true, 'width' => '40', 'fixed' => true],
- //        ['text' => "Image", 'value' => "image"],
- //        ['text' => "Rating", 'value' => "rating", 'sortable' => true],
+ //      ['text' => "Image", 'value' => "image"],
+ //      ['text' => "Rating", 'value' => "rating", 'sortable' => true],
+         ['text' => "is Active", 'value' => "checkbox1"],
          ['text' => "Operation", 'value' => "operation"], // for edit or delete record in table. value'=> "operation" -
          // only for edit  or delete. For operation require id !!!
      ];

@@ -41,6 +41,7 @@
             style_table="{{$style_table}}"
             direction="{{$direction}}"
             props="{{$props}}"
+            author
     >
 
     </table-component>
