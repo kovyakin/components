@@ -4,13 +4,12 @@ namespace Kovyakin\Components\app\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
-use Kovyakin\Components\app\Providers\ComponentsServiceProvider;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Exception\InvalidArgumentException;
 use Symfony\Component\Console\Input\InputArgument;
 
-#[AsCommand(name: 'components:create-table')]
-class makeTableCommand extends GeneratorCommand
+#[AsCommand(name: 'components:create-table-controller')]
+class makeTableController extends GeneratorCommand
 {
 
     /**
@@ -18,28 +17,28 @@ class makeTableCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $name = 'components:create-table';
+    protected $name = 'components:create-table-controller';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a new table';
+    protected $description = 'Create a new table controller';
 
     /**
      * The type of class being generated.
      *
      * @var string
      */
-    protected $type = 'Table';
+    protected $type = 'Controller';
 
     /**
      * The name of class being generated.
      *
      * @var string
      */
-    private $tableClass;
+    private $controllerClass;
 
     /**
      * The name of class being generated.
@@ -48,17 +47,30 @@ class makeTableCommand extends GeneratorCommand
      */
     private $model;
 
+    private $resource;
     /**
      * Execute the console command.
      *
      * @return bool|null
      * @throws FileNotFoundException
      */
+
+    protected function buildClass($name)
+    {
+
+        $stub = $this->files->get($this->getStub());
+
+        return $this->replaceNamespace($stub, $name)
+            ->setControllerClass()
+            ->replaceClass(
+            $this->replaceResource($stub, $name), $this->resource);
+    }
     public function fire()
     {
-        $this->setTableClass();
 
-        $path = $this->getPath($this->tableClass);
+        $this->setControllerClass();
+
+        $path = $this->getPath($this->controllerClass);
 
         if ($this->alreadyExists($this->getNameInput())) {
             $this->error($this->type . ' already exists!');
@@ -68,11 +80,12 @@ class makeTableCommand extends GeneratorCommand
 
         $this->makeDirectory($path);
 
-        $this->files->put($path, $this->buildClass($this->tableClass));
+
+        $this->files->put($path, $this->buildClass($this->controllerClass));
 
         $this->info($this->type . ' created successfully.');
 
-        $this->line("<info>Created Table :</info> $this->tableClass");
+        $this->line("<info>Created Table Controller :</info> $this->controllerClass");
     }
 
     /**
@@ -80,15 +93,19 @@ class makeTableCommand extends GeneratorCommand
      *
      * @return  void
      */
-    private function setTableClass()
+    private function setControllerClass()
     {
         $name = ucwords(strtolower($this->argument('name')));
 
-        $this->model = $name;
+        $model = ucwords(strtolower($this->argument('model')));
 
-        $modelClass = $this->parseName($name);
+        $resource = ucwords(strtolower($this->argument('resource')));
 
-        $this->tableClass = $modelClass . 'Table';
+        $this->name = $name;
+
+        $this->model = $model;
+
+        $this->resource = $resource;
 
         return $this;
     }
@@ -102,13 +119,26 @@ class makeTableCommand extends GeneratorCommand
      */
     protected function replaceClass($stub, $name)
     {
+
         if (!$this->argument('name')) {
             throw new InvalidArgumentException("Missing required argument model name");
         }
 
         $stub = parent::replaceClass($stub, $name);
+//        str_replace('DummyResource',$this->argument('resource'), $stub);
+        return str_replace('DummyModel',$this->argument('model'), $stub);
+    }
 
-        return str_replace('DummyModel', $this->model, $stub);
+    protected function replaceResource($stub, $name)
+    {
+
+        if (!$this->argument('resource')) {
+            throw new InvalidArgumentException("Missing required argument resource name");
+        }
+
+        $stub = parent::replaceClass($stub, $name);
+        return  str_replace('DummyResource',$this->argument('resource'), $stub);
+
     }
 
     /**
@@ -120,7 +150,7 @@ class makeTableCommand extends GeneratorCommand
     protected function getStub()
     {
         return base_path('vendor/kovyakin/components/src/stubs/table.stub');//
-//        return base_path('packages/kovyakin/components/src/stubs/table.stub');
+//        return base_path('packages/kovyakin/components/src/stubs/tableController.stub');
     }
 
     /**
@@ -131,7 +161,7 @@ class makeTableCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\Components\Table';
+        return $rootNamespace . '\Http\Controllers';
     }
 
     /**
@@ -142,7 +172,9 @@ class makeTableCommand extends GeneratorCommand
     protected function getArguments()
     {
         return [
-            ['name', InputArgument::REQUIRED, 'The name of the model class.'],
+            ['name', InputArgument::REQUIRED, 'The name of the controller class.'],
+            ['model', InputArgument::REQUIRED, 'The name of the model class that is used in the controller.'],
+            ['resource', InputArgument::REQUIRED, 'The name of the resource class that is used in the controller.'],
         ];
     }
 

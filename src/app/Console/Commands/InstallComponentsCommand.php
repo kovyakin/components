@@ -12,7 +12,7 @@ class InstallComponentsCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'components:initialize';
+    protected $signature = 'components:install';
 
     /**
      * The console command description.
@@ -26,11 +26,14 @@ class InstallComponentsCommand extends Command
      */
     public function handle()
     {
-       $question = $this->confirm('Do you want to initialize kovyakin/components?');
-      if($question) {
-          Artisan::call('vendor:publish', ['--tag' => 'components', '--force' => true]);
-          $this->info('Kovyakin/Components package initialized successfully.');
-          $this->info("Add to blade scripts and styles.");
-      }
+        $question = $this->confirm('Do you want to install kovyakin/table?');
+
+        if ($question) {
+            Artisan::call('vendor:publish', ['--tag' => 'table', '--force' => true]);
+            $this->info('Kovyakin/Table package initialized successfully.');
+            $this->info("Add to blade scripts and styles.");
+            $this->info("Don't forget to add a table. artisan components:create-table");
+            $this->info("Don't forget to add a controller. artisan components:create-table-controller");
+        }
     }
 }

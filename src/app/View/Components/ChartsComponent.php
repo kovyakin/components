@@ -10,19 +10,16 @@ namespace Kovyakin\Components\app\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use Kovyakin\Components\app\Interfaces\Components as Table;
+use Kovyakin\Components\app\Interfaces\Components as Charts;
 
-class TableComponent extends Component
+class ChartsComponent extends Component
 {
-    public Table $model;
+    public Charts $model;
 
-    /**
-     * Create a new component instance.
-     */
-    public function __construct($table)
+    public function __construct($charts)
     {
-
-        $this->model = app('App\Components\Table\\' . $table);
+//        dd( app('App\Components\Table\\'. $table));
+        $this->model = app('App\Components\Charts\\'. $charts) ;
     }
 
     /**
@@ -30,7 +27,6 @@ class TableComponent extends Component
      */
     public function render(): View|Closure|string
     {
-        return $this->model::render();
+        return $this-> model::render();
     }
-
 }

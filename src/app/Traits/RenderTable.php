@@ -10,22 +10,23 @@ namespace Kovyakin\Components\app\Traits;
 
 use Illuminate\Contracts\View\View;
 
-trait Render
+
+trait RenderTable
 {
-    protected static function view(): View
+    public static function view(): View
     {
         return view('components::table')->with([
-
             'className' => self::getClassName(),
             'use_api' => !empty(self::$useApi) ?? self::$useApi,
+            'token' => self::token(),
             'api_query' => !empty(self::$apiQuery) ? json_encode(
                 self::$apiQuery,
                 JSON_UNESCAPED_UNICODE
             ) : '',
             'columns' => json_encode(self::$columns, JSON_UNESCAPED_UNICODE),
             'column_operation' => !empty(self::$column_operation) ?? self::$column_operation,
-            'items' => !empty(self::$items) ? self::$items : json_encode(
-               [],
+            'items' => !empty(self::$items) ? json_encode(self::$items, JSON_UNESCAPED_UNICODE) : json_encode(
+                [],
                 JSON_UNESCAPED_UNICODE
             ),
             'expanded' => !empty(self::$expanded) ? self::$expanded : false,
@@ -42,6 +43,7 @@ trait Render
             'body_row_background_color' => !empty(self::$body_row_background_color) ? self::$body_row_background_color
                 : '',
             'show_block_search' => !empty(self::$show_block_search) ? self::$show_block_search : false,
+            'button_add' => !empty(self::$button_add) ? self::$button_add : false,
             'use_rating' => !empty(self::$useRating) ? self::$useRating : false,
             'block_operation' => !empty(self::$block_operation) ? json_encode(
                 self::$block_operation,
@@ -53,6 +55,10 @@ trait Render
             ) : '',
             'block_search' => !empty(self::$block_search) ? json_encode(
                 self::$block_search,
+                JSON_UNESCAPED_UNICODE
+            ) : '',
+            'style_button_add' => !empty(self::$style_button_add) ? json_encode(
+                self::$style_button_add,
                 JSON_UNESCAPED_UNICODE
             ) : '',
             'style_table' => !empty(self::$style_table) ? json_encode(
@@ -67,6 +73,12 @@ trait Render
                 self::$props,
                 JSON_UNESCAPED_UNICODE
             ) : '',
+            'use_toast' => !empty(self::$useToast) ? self::$useToast : false,
+            'modal_dialog' => !empty(self::$modal_dialog) ? json_encode(
+                self::$modal_dialog,
+                JSON_UNESCAPED_UNICODE
+            ) : '',
+
         ]);
     }
 
