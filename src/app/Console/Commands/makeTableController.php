@@ -149,7 +149,7 @@ class makeTableController extends GeneratorCommand
      */
     protected function getStub()
     {
-        return base_path('vendor/kovyakin/components/src/stubs/table.stub');//
+        return base_path('vendor/kovyakin/components/src/stubs/tableController.stub');//
 //        return base_path('packages/kovyakin/components/src/stubs/tableController.stub');
     }
 
