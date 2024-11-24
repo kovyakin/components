@@ -39,10 +39,10 @@ class ComponentsServiceProvider extends ServiceProvider
 
         Blade::component('table-component', TableComponent::class);
 
-        Blade::component('charts-component', ChartsComponent::class);
+//        Blade::component('charts-component', ChartsComponent::class);
 
         $this->publishes([
-            __DIR__.'/../../public' => public_path('vendor/table'),
+            __DIR__.'/../../public' => public_path('vendor/kovyakin/components'),
         ], 'components');
 
         $this->loadViewsFrom(__DIR__.'/../../resources/views/components', 'components');

@@ -50,7 +50,18 @@
             @if($use_toast) toast
             @endif
             modal_dialog="{{$modal_dialog}}"
-{{--            author--}}
+            {{--            author--}}
     >
     </table-component>
+
 </div>
+
+
+@push('table')
+    <script src="{{asset('/vendor/kovyakin/components/table/app-BaI1wmQB.min.js')}}"
+            type="module"></script>
+    <link href="{{asset('/vendor/kovyakin/components/table/app-aYNoVCWh.css')}}"
+          rel="stylesheet"/>
+    <link href="{{asset('/vendor/kovyakin/components/table/app-D3B3HHh9.min.css')}}"
+          rel="stylesheet"/>
+@endpush
