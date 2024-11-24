@@ -27,8 +27,9 @@ use Illuminate\Support\Facades\Route;
 //        Route::delete('/user/delete/selected', [UserController::class, 'destroySelected']);
 //    });
 //});
-Route::get( 'user/search', [UserController::class, 'search']);
+
 Route::macro('table', function ($url, $controller) {
+    Route::get($url . '/search', [$controller, 'search'])->name($url . '.search');
     Route::get($url, [$controller, 'index'])->name($url . '.index');
     Route::get($url . '/create', [$controller, 'create'])->name($url . '.create');
     Route::post($url, [$controller, 'store'])->name($url . '.store')->middleware(['api', 'web']);
@@ -37,7 +38,7 @@ Route::macro('table', function ($url, $controller) {
     Route::put($url . '/{id}/', [$controller, 'update'])->name($url . '.update');
     Route::patch($url . '/{id}', [$controller, 'update'])->name($url . '.update');
     Route::delete($url . '/{id}', [$controller, 'destroy'])->name($url . '.destroy');
-//    Route::get($url . '/search', [$controller, 'search'])->name($url . '.search');
+
     Route::put($url . '/{id}/checkbox', [$controller, 'updateCheckbox'])->name(
         $url . '.updateCheckbox'
     );
