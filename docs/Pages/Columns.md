@@ -26,11 +26,14 @@ and is added to work with Laravel.
 
 # Columns
 
+It is not necessary to specify ID
+
 Set table headers in your table model, example
 
 ```php
-  ['text' => "ID", 'value' => "id", 'sortable' => true, 'width' => '40', 'fixed' => true],
+         ['text' => "ID", 'value' => "id", 'sortable' => true, 'width' => '40', 'fixed' => true],
          ['text' => "Image", 'value' => "image",'width'=>20],
+         ['text' => "is Active", 'value' => "checkbox1", 'style' => 'red', 'type' => 'slider'],
          ['text' => "Имя", 'value' => "name", 'sortable' => true],
          ['text' => "Email", 'value' => "email", 'sortable' => true],
          ['text' => "Rating", 'value' => "rating", 'sortable' => true],
