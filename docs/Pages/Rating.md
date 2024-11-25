@@ -5,8 +5,8 @@
 <div style="text-align: center;">
 
 ![GitHub watchers](https://img.shields.io/github/watchers/kovyakin/components)
-![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/kovyakin/components)
 ![Packagist Stars](https://img.shields.io/packagist/stars/kovyakin/components)
+
 ![Packagist Version](https://img.shields.io/packagist/v/kovyakin/components)
 ![Packagist License](https://img.shields.io/packagist/l/kovyakin/components)
 
@@ -21,7 +21,7 @@
 
 ## Main
 
-This package is developed on Vue3 (https://github.com/HC200ok/vue3-easy-data-table/)
+This package is developed on Vue3 
 and is added to work with Laravel.
 
 # Rating
