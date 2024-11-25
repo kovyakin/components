@@ -15,6 +15,11 @@ trait RenderTable
 {
     public static function view(): View
     {
+        if (empty(self::$apiQuery)) {
+            if (!empty(self::$useApi)) {
+                self::$useApi = false;
+            }
+        }
         return view('components::table')->with([
             'className' => self::getClassName(),
             'use_api' => !empty(self::$useApi) ?? self::$useApi,

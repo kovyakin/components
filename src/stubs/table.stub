@@ -498,12 +498,6 @@ class {{ class }} extends Table implements Components
 
     public static function render(): View
     {
-        if (empty(self::$apiQuery)) {
-            if (!empty(self::$useApi)) {
-                self::$useApi = false;
-            }
-        }
-
         return self::view();
     }
 }
