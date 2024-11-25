@@ -19,82 +19,49 @@
 - Laravel 11+.
 - PHP 8.2 +.
 
-## Main
+<img src="https://github.com/kovyakin/components/blob/master/docs/images/1.png" alt="image">
 
-This package is developed on Vue3
-and is added to work with Laravel.
+## Step by step
 
-### Installation
-
-- composer require kovyakin/components
-
-- php artisan vendor:publish --tag=components
-
-  # Usage
-- php artisan vendor:publish --tag=components or php artisan components:initialize
-- Add to the end of the file :
+1. Install laravel.
+2. Install example laravel/jetstream.
+3. Install laravel/api.
+4. In your model -  use HasApiTokens;
+5. composer require kovyakin/components.
+6. php artisan vendor:publish --tag=components.
+7. Create your own table: php artisan components:create-table.
+8. Create your resource, example php artisan make:resource UserResource.
+```php
+ public function toArray(Request $request): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'email' => $this->email,
+            'created_at' => $this->created_at->format('d-m-Y'),
+            'rating' => random_int(0, 5), // or $this->rating in your model attributes
+            'updated_at' => $this->updated_at->format('d-m-Y'),
+            'expanded' => $this->expanded, // or $this->rating in your model attributes
+            'checkbox1' => (bool)random_int(0, 1), // or $this->rating in your model attributes
+        ];
+    }
+```
+9. Create your own controller: php artisan components:create-table-controller   
+    - enter your controller name;
+    - enter your model name  of the model class that is used in the controller;
+    - enter your name of the resource class that is used in the controller
+10. In namespace App\Components\Table in the table you will need to set data and styles.
+11. in your controller (namespace App\Http\Controllers) you will need to write all the logic and create the necessary blades
+12. create a new router like this:
 
 ```php
-    <script src="{{asset('/vendor/components/table/table.js')}}" type="module"></script>
-    <link href="{{asset('/vendor/components/table/table.css')}}" rel="stylesheet" />
-    <link href="{{asset('/vendor/components/table/table_style.css')}}" rel="stylesheet" />
+Route::table('/user', TableController::class);
 ```
 
-- The next step is to create a table class,example
+13. Place on the main page 
 
 ```php
- php artisan components:table UserTable
+@stack('table')
 ```
 
-you will create a table class in "app/Components/Table/UserTable.php".
-
-### Set table headers and fields in the method
-
-use the component <x-table-component table="UserTable" /> in blade to display the table,
-example:
-
-```php
- protected static array $columns = [
-         ['text' => "ID", 'value' => "id", 'sortable' => true, 'width' => '40', 'fixed' => true],
-         ['text' => "Имя", 'value' => "name", 'sortable' => true],
-         ['text' => "Email", 'value' => "email", 'sortable' => true],
-         ['text' => "Email verified", 'value' => "email_verified_at"],
-         ['text' => "Created at", 'value' => "created_at"],
-         ['text' => "Updated at", 'value' => "updated_at"],
-     ];
-```
-
-Where
-
-- 'text' - table header text;
-- 'value' - Field from the database, must match the model, for example app/Models/User.php;
-- 'sortable' - column sorting permission;
-- 'width' - column width;
-  'fixed' - to fix the column or not.
-
-### Set Items:
-
-```php
-     protected static function dataTable(): Collection| null
-     {
-         return self::$items =  User::all();
-     }
-```
-
-### Set in "app/Components/Table/UserTable.php"
-
-```php
-     private static bool $useApi = false;
-```
-
-now you can use the component in your blade, example
-
-```php
-   <x-table-component table="UserTable" /> 
-```
-
-where table="UserTable" - table class name, case insensitive.
-
-## Important! In one blade you can use only one component with a certain name, and many components with different names
-
-  <img src="https://github.com/kovyakin/components/blob/master/docs/images/2.png" alt="image">
+### An example can be seen here: [Example](https://github.com/kovyakin/table)
