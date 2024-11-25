@@ -58,11 +58,11 @@
 
 @once
     @push('table')
-        <script src="{{asset('/vendor/kovyakin/components/table/app-BaI1wmQB.min.js')}}"
+        <script src="{{asset('/vendor/kovyakin/components/table/app-D7goJIkW.min.js')}}"
                 type="module"></script>
         <link href="{{asset('/vendor/kovyakin/components/table/app-aYNoVCWh.css')}}"
               rel="stylesheet"/>
-        <link href="{{asset('/vendor/kovyakin/components/table/app-D3B3HHh9.min.css')}}"
+        <link href="{{asset('/vendor/kovyakin/components/table/app-BKeSEtbo.min.css')}}"
               rel="stylesheet"/>
     @endpush
 @endonce
