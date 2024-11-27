@@ -12,8 +12,7 @@ use Illuminate\Contracts\View\View;
 
 trait RenderCharts
 {
-
-    protected static function view(): View
+    public static function view(): View
     {
         return view('components::charts')->with([
             'className' => self::getClassName(),
