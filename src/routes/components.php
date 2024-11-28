@@ -5,29 +5,6 @@ use App\Http\Controllers\Api\UserController;
 
 use Illuminate\Support\Facades\Route;
 
-//Route::middleware(['auth:sanctum'])->prefix('api')->group(function () {
-//    Route::resource('/user', UserController::class, ['only' => ['show', 'update', 'edit', 'create', 'store']])
-//        ->middleware(['web']);
-//
-//    Route::resource(
-//        '/user',
-//        UserController::class,
-//        ['only' => ['index', 'destroy']]
-//    )
-//        ->middleware(['api']);
-//
-//
-//    Route::middleware(['api'])->group(function () {
-//        Route::put('/user/{id}/checkbox', [UserController::class, 'updateCheckbox'])
-//            ->middleware('api')
-//            ->name('user.checkbox');
-//
-//        Route::post('/user/search', [UserController::class, 'search']);
-//
-//        Route::delete('/user/delete/selected', [UserController::class, 'destroySelected']);
-//    });
-//});
-
 Route::macro('table', function ($url, $controller) {
     Route::get($url . '/search', [$controller, 'search'])->name($url . '.search');
     Route::get($url, [$controller, 'index'])->name($url . '.index');
