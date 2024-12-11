@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Kovyakin\Components\app\Console\Commands\InstallComponentsCommand;
+use Kovyakin\Components\app\Console\Commands\makeChartsCommand;
 use Kovyakin\Components\app\Console\Commands\makeTableCommand;
 use Kovyakin\Components\app\Console\Commands\makeTableController;
 use Kovyakin\Components\app\View\Components\ChartsComponent;
@@ -33,6 +34,7 @@ class ComponentsServiceProvider extends ServiceProvider
                 makeTableCommand::class,
                 InstallComponentsCommand::class,
                 makeTableController::class,
+                makeChartsCommand::class,
             ]);
         }
         $this->loadRoutesFrom(__DIR__.'../../../routes/components.php');
@@ -46,7 +48,6 @@ class ComponentsServiceProvider extends ServiceProvider
         ], 'components');
 
         $this->loadViewsFrom(__DIR__.'/../../resources/views/components', 'components');
-
 
     }
 }

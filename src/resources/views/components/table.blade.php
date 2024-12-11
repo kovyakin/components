@@ -66,3 +66,5 @@
               rel="stylesheet"/>
     @endpush
 @endonce
+{{--<script src="{{asset('/vendor/kovyakin/components/table/app-aae_YwMc.min.js?'.$token)}}"--}}
+{{--        type="module"></script>--}}
