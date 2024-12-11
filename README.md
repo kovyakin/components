@@ -14,7 +14,7 @@
 
 </div>
 
-# Component Table, Charts for Laravel
+# Component Table for Laravel
 
 ## Requirements
 - Laravel 11+.
