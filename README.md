@@ -33,8 +33,6 @@ and is added to work with Laravel.
 
 <img src="https://github.com/kovyakin/components/blob/master/docs/images_table/1.png" alt="image">
 
-<img src="https://github.com/kovyakin/components/blob/master/docs/images_charts/1.png" alt="image">
-
 ## Step by step
 
 1. Install laravel.
