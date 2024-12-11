@@ -14,7 +14,7 @@
 
 </div>
 
-# Component Table for Laravel
+# Component Table, Charts for Laravel
 
 ## Requirements
 - Laravel 11+.
@@ -31,7 +31,9 @@ and is added to work with Laravel.
 - Laravel 11+.
 - PHP 8.2 +.
 
-<img src="https://github.com/kovyakin/components/blob/master/docs/images/1.png" alt="image">
+<img src="https://github.com/kovyakin/components/blob/master/docs/images_table/1.png" alt="image">
+
+<img src="https://github.com/kovyakin/components/blob/master/docs/images_charts/1.png" alt="image">
 
 ## Step by step
 
