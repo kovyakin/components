@@ -32,12 +32,10 @@ and is added to work with Laravel.
 
   # Usage
 - php artisan vendor:publish --tag=components or php artisan components:initialize
-- Add to the end of the file :
+- Add to the end of the layout file :
 
 ```php
-    <script src="{{asset('/vendor/components/table/table.js')}}" type="module"></script>
-    <link href="{{asset('/vendor/components/table/table.css')}}" rel="stylesheet" />
-    <link href="{{asset('/vendor/components/table/table_style.css')}}" rel="stylesheet" />
+   @stack('table')
 ```
 
 - The next step is to create a table class,example

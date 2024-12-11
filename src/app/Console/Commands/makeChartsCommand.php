@@ -118,8 +118,8 @@ class makeChartsCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-//        return base_path('vendor/kovyakin/components/src/stubs/charts.stub');//
-        return base_path('packages/kovyakin/components/src/stubs/charts.stub');
+        return base_path('vendor/kovyakin/components/src/stubs/charts.stub');//
+//        return base_path('packages/kovyakin/components/src/stubs/charts.stub');
     }
 
     /**
