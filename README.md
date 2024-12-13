@@ -31,7 +31,7 @@ and is added to work with Laravel.
 
 ## Table
 
-<img src="https://github.com/kovyakin/components/blob/master/docs/images_table/1.png" alt="image">
+<img src="https://github.com/kovyakin/components/blob/master/src/docs/images_table/1.png" alt="image">
 
 
 ### An example can be seen here: [Example](https://github.com/kovyakin/table)
@@ -41,7 +41,7 @@ and is added to work with Laravel.
 
 ## Charts
 
-<img src="https://github.com/kovyakin/components/blob/master/docs/images_table/1.png" alt="image">
+<img src="https://github.com/kovyakin/components/blob/master/src/docs/images_table/1.png" alt="image">
 
 ### Changelog
 
