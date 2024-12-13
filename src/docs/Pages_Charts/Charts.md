@@ -19,15 +19,26 @@
 - Laravel 11+.
 - PHP 8.2 +.
 
-## Main
+<img src="https://github.com/kovyakin/components/blob/master/src/docs/images_charts/1.png" alt="image">
 
-This package is developed on Vue3 
-and is added to work with Laravel.
+## Step by step
 
-# Alternating
-
-Changes the line color slightly when hovering, example
+1. Install laravel.
+2. composer require kovyakin/components.
+3. php artisan vendor:publish --tag=components.
+4. Create your own table: php artisan components:create-charts.
+5. Place on the main page
 
 ```php
-        protected static bool $alternating = true;
+@stack('charts')
 ```
+6. you can use the component in your blade, example
+
+```php
+  <x-charts-component  charts="Charts1"></x-charts-component>
+```
+where table="Charts1" - table class name, case insensitive.
+
+7. you can double click to enlarge the chart in the modal window
+
+### An example can be seen here: [Example](https://github.com/kovyakin/charts)
