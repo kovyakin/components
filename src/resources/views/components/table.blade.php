@@ -58,7 +58,7 @@
 
 @once
     @push('table')
-        <script src="{{asset('/vendor/kovyakin/components/table/app-CtW9MTGD.min.js')}}"
+        <script src="{{asset('/vendor/kovyakin/components/table/app-CtW9MTGD.min.js?'.$token)}}"
                 type="module"></script>
         <link href="{{asset('/vendor/kovyakin/components/table/app-aYNoVCWh.css')}}"
               rel="stylesheet"/>
